@@ -101,7 +101,7 @@
   --text-body-md--font-weight: 400;
 
   --spacing-margin-desktop: 64px;
-  --spacing-section-gap: 160px;
+  --spacing-section-gap: clamp(48px, 6vh, 96px);
   --spacing-stack-lg: 24px;
   --spacing-margin-mobile: 20px;
   --spacing-gutter: 32px;
@@ -113,6 +113,14 @@
 body {
   background-color: var(--color-background);
   color: var(--color-on-background);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 90px;
 }
 
 @utility glass-panel {
@@ -150,3 +158,24 @@ html.cursor-none,
 html.cursor-none * {
   cursor: none !important;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@utility animate-fadeIn {
+  animation: fadeIn 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity;
+}
+
+@utility animate-scaleIn {
+  animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+

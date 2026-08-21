@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="min-h-[819px] flex flex-col md:flex-row items-center justify-between gap-gutter mt-section-gap">
+    <section className="min-h-[75vh] flex flex-col md:flex-row items-center justify-between gap-gutter pt-20 pb-10 md:pt-24 md:pb-12">
       <div className="flex-1 space-y-stack-lg">
         <div className="flex items-center gap-2 font-label-mono text-label-mono text-primary uppercase tracking-widest">
           <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
