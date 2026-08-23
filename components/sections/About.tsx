@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function About() {
   return (
     <section className="mt-section-gap pt-section-gap" id="about">
@@ -23,10 +25,12 @@ export default function About() {
           </div>
         </div>
         <div className="flex-1 w-full max-w-md mx-auto md:mr-0 mt-12 md:mt-0">
-          <div className="w-full rounded-2xl overflow-hidden">
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaTZ5MRuiFr0GuYJGYh08XzjX1XQS1KmGjfht4Rh2JVOVo5qXmJhD4QqvZyjDxEnTwPk6n7SRvFMiOI96Zsjqt66iLjBHY9urwP1tvCBeApWdF4Jcg9lFfWyvRlOgrJk-HVnCSsomqMagOIwqFws8j4oJAOm4fdxOgqNzRaDwu5xcMDKg5ck9WxASg4LzpJVFe7f5jTpwdHa3mN_NU4vclcv-Wrot5SudeKTx2EYPMuE3ebW_xDPQn1e3YinaN7AYtHEA"
+          <div className="w-full rounded-2xl overflow-hidden relative">
+            <Image
+              src="/images/about_me.webp"
               alt="Professional photograph of developer"
+              width={500}
+              height={500}
               className="w-full h-auto object-cover rounded-2xl"
             />
           </div>
