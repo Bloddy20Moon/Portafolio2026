@@ -29,7 +29,7 @@ const PROJECTS_DATA: Project[] = [
     subtitle: "React • .Net Core • TSQL",
     description: "Este sistema diseñado para automatizar las ventas, el control de pedidos y la emisión de comprobantes en el sector gastronómico, optimizando las operaciones diarias y el manejo de caja de un negocio.",
     tags: ["REACT", ".Net Core", "TSQL"],
-    images: ["/images/RestoApp1.webp"],
+    images: ["/images/RestoApp1.webp", "/images/RestoApp2.webp", "/images/RestoApp3.webp"],
     imageAlt: "RestoApp Interface Screenshot",
     githubUrl: "https://github.com/adriaalvarado/pulse-analytics",
     projectUrl: "#"
@@ -42,8 +42,7 @@ const PROJECTS_DATA: Project[] = [
     tags: ["NEXT.JS", "STRIPE", "PRISMA", "REDIS"],
     images: [
       "/images/project2_1.webp",
-      "/images/project2_2.jpg",
-      "/images/project2_3.jpg"
+
     ],
     imageAlt: "Lumen Commerce Platform Screenshot",
     githubUrl: "https://github.com/adriaalvarado/lumen-commerce",
@@ -54,7 +53,7 @@ const PROJECTS_DATA: Project[] = [
 export default function Projects() {
   // Estado de React para controlar qué proyecto está seleccionado en el modal
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  
+
   // Estado de React para controlar la imagen activa del carrusel dentro del modal
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
@@ -127,7 +126,7 @@ export default function Projects() {
         <div>
           <span className="section-index font-label-mono text-label-mono">{"// 01"}</span>
           <h2 className="font-headline-md text-headline-md text-white mt-2">
-            Projects.<span className="text-primary animate-pulse">|</span>
+            Proyectos.<span className="text-primary animate-pulse">|</span>
           </h2>
         </div>
         <div className="font-label-mono text-label-mono text-gray-400 text-sm uppercase tracking-wider hidden md:block">
@@ -167,7 +166,7 @@ export default function Projects() {
                 >
                   Ver detalles
                   <svg className="w-4 h-4 ml-1 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                   </svg>
                 </button>
               </div>
@@ -230,7 +229,7 @@ export default function Projects() {
             </button>
 
             {/* Panel Izquierdo: Imagen del Proyecto / Carrusel en el Modal */}
-            <div 
+            <div
               className="flex-1 relative min-h-[200px] sm:min-h-[300px] md:min-h-0 bg-black flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-white/10 aspect-video md:aspect-auto select-none"
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
@@ -277,9 +276,8 @@ export default function Projects() {
                       <button
                         key={idx}
                         onClick={() => setActiveImageIndex(idx)}
-                        className={`h-2 rounded-full transition-all duration-300 cursor-pointer interactive ${
-                          activeImageIndex === idx ? "bg-primary w-4" : "bg-white/40 hover:bg-white/60 w-2"
-                        }`}
+                        className={`h-2 rounded-full transition-all duration-300 cursor-pointer interactive ${activeImageIndex === idx ? "bg-primary w-4" : "bg-white/40 hover:bg-white/60 w-2"
+                          }`}
                         aria-label={`Ir a la imagen ${idx + 1}`}
                       />
                     ))}
@@ -330,7 +328,7 @@ export default function Projects() {
                 >
                   <span>Ver Demo</span>
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                   </svg>
                 </a>
               </div>
