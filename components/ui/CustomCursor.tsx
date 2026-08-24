@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
+  const cursorRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -16,37 +16,28 @@ export default function CustomCursor() {
     document.documentElement.classList.add("cursor-none");
 
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate3d(-50%, -50%, 0)`;
+      }
     };
 
-    const handleMouseEnter = () => setIsHovered(true);
-    const handleMouseLeave = () => setIsHovered(false);
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    const attachHoverListeners = () => {
-      const interactives = document.querySelectorAll(".interactive, a, button, input, textarea, select");
-      interactives.forEach((el) => {
-        el.addEventListener("mouseenter", handleMouseEnter);
-        el.addEventListener("mouseleave", handleMouseLeave);
-      });
+    // Event delegation for hover states on interactive elements
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target && target.closest(".interactive, a, button, input, textarea, select, [role='button']")) {
+        setIsHovered(true);
+      } else {
+        setIsHovered(false);
+      }
     };
 
-    attachHoverListeners();
-
-    // Re-attach listeners when DOM changes (e.g. transitions or dynamics)
-    const observer = new MutationObserver(attachHoverListeners);
-    observer.observe(document.body, { childList: true, subtree: true });
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    window.addEventListener("mouseover", handleMouseOver, { passive: true });
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
       document.documentElement.classList.remove("cursor-none");
-      observer.disconnect();
-      const interactives = document.querySelectorAll(".interactive, a, button, input, textarea, select");
-      interactives.forEach((el) => {
-        el.removeEventListener("mouseenter", handleMouseEnter);
-        el.removeEventListener("mouseleave", handleMouseLeave);
-      });
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseover", handleMouseOver);
     };
   }, []);
 
@@ -54,11 +45,12 @@ export default function CustomCursor() {
 
   return (
     <div
+      ref={cursorRef}
       style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
+        transform: "translate3d(-100px, -100px, 0) translate3d(-50%, -50%, 0)",
+        willChange: "transform",
       }}
-      className={`fixed top-0 left-0 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[width,height,background-color,border] duration-200 ${
+      className={`fixed top-0 left-0 rounded-full pointer-events-none z-[9999] transition-[width,height,background-color,border] duration-150 ease-out ${
         isHovered
           ? "w-10 h-10 bg-transparent border-2 border-primary"
           : "w-2 h-2 bg-primary"

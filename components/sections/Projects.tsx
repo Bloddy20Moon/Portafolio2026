@@ -36,16 +36,18 @@ const PROJECTS_DATA: Project[] = [
   },
   {
     id: 2,
-    title: "Lumen Commerce",
-    subtitle: "Next.js • Stripe • Prisma",
-    description: "Plataforma headless de comercio electrónico que impulsa a más de 200 tiendas. Búsqueda de productos en sub-segundos, pasarela de pago Stripe integrada y renderizado ultra rápido desde el Edge.",
-    tags: ["NEXT.JS", "STRIPE", "PRISMA", "REDIS"],
+    title: "Gestión Comercial de Calzado",
+    subtitle: "Angular • Nest.JS • MySQL",
+    description: "Sistema backend modular construido con NestJS enfocado en la administración eficiente de productos, marcas, tallas y stock en tiempo real. Incorpora seguridad avanzada con roles y permisos, carga de archivos y flujos automatizados de notificaciones.",
+    tags: ["Angular", "NestJS", "MySQL"],
     images: [
-      "/images/project2_1.webp",
-
+      "/images/zapateria/UsuarioZapatilla4.webp",
+      "/images/zapateria/Zapatillas2.webp",
+      "/images/zapateria/Zapatillas3.webp",
     ],
     imageAlt: "Lumen Commerce Platform Screenshot",
     githubUrl: "https://github.com/adriaalvarado/lumen-commerce",
+
     projectUrl: "#"
   }
 ];
@@ -174,7 +176,7 @@ export default function Projects() {
               {/* Imagen Interactiva (Haz clic en ella para abrir el modal) */}
               <div
                 onClick={() => handleOpenModal(project)}
-                className="flex-1 w-full overflow-hidden rounded-xl border border-white/20 relative cursor-pointer group/img aspect-video"
+                className="flex-1 w-full overflow-hidden rounded-xl border border-white/20 relative cursor-pointer group/img aspect-video interactive"
               >
                 {/* Capa de mezcla roja clásica del tema */}
                 <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10 pointer-events-none group-hover/img:bg-transparent transition-colors duration-300"></div>
