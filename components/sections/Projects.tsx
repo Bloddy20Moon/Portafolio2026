@@ -30,9 +30,9 @@ const PROJECTS_DATA: Project[] = [
     description: "Este sistema diseñado para automatizar las ventas, el control de pedidos y la emisión de comprobantes en el sector gastronómico, optimizando las operaciones diarias y el manejo de caja de un negocio.",
     tags: ["REACT", ".Net Core", "TSQL"],
     images: ["/images/RestoApp1.webp", "/images/RestoApp2.webp", "/images/RestoApp3.webp"],
-    imageAlt: "RestoApp Interface Screenshot",
-    githubUrl: "https://github.com/adriaalvarado/pulse-analytics",
-    projectUrl: "#"
+    imageAlt: "RestoApp",
+    githubUrl: "https://github.com/Bloddy20Moon/FacturacionRestaurante",
+    projectUrl: "https://github.com/Bloddy20Moon/FacturacionRestaurante"
   },
   {
     id: 2,
@@ -45,10 +45,10 @@ const PROJECTS_DATA: Project[] = [
       "/images/zapateria/Zapatillas2.webp",
       "/images/zapateria/Zapatillas3.webp",
     ],
-    imageAlt: "Lumen Commerce Platform Screenshot",
-    githubUrl: "https://github.com/adriaalvarado/lumen-commerce",
+    imageAlt: "Calzado",
+    githubUrl: "https://github.com/Bloddy20Moon/SistemaZapateriaFront",
 
-    projectUrl: "#"
+    projectUrl: "https://github.com/Bloddy20Moon/SistemaZapateriaFront"
   }
 ];
 
@@ -132,7 +132,7 @@ export default function Projects() {
           </h2>
         </div>
         <div className="font-label-mono text-label-mono text-gray-400 text-sm uppercase tracking-wider hidden md:block">
-          Selected • 2024-2026
+          Proyectos Destacados
         </div>
       </div>
 

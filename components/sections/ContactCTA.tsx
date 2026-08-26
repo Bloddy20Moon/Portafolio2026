@@ -4,26 +4,26 @@ export default function ContactCTA() {
       <div className="max-w-2xl mx-auto space-y-8">
         <div className="inline-flex items-center gap-2 font-label-mono text-label-mono text-primary uppercase tracking-widest">
           <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-          Currently available • 2-3 project slots open
+          Disponibilidad inmediata • Abierto a nuevas oportunidades profesionales.
         </div>
         <h2 className="font-display-lg-mobile text-display-lg-mobile md:text-display-lg text-white">
-          Let's build something.
+          Construyamos algo juntos.
         </h2>
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 pt-4">
           <a
             className="btn-primary font-button text-button px-8 py-4 rounded-lg interactive w-full md:w-auto"
-            href="#contact"
+            href="https://wa.me/51907670080"
           >
-            Start a conversation
+            Whatsapp
           </a>
           <a
             className="btn-secondary font-button text-button px-8 py-4 rounded-lg interactive w-full md:w-auto"
-            href="mailto:alex@example.com"
+            href="mailto:adrian0212alvarado@gmail.com"
           >
-            Or email me directly
+            Email
           </a>
         </div>
-        <p className="text-gray-500 font-label-mono text-xs">Replies within 24h • Mon-Fri</p>
+        <p className="text-gray-500 font-label-mono text-xs">Disponibilidad Inmediata</p>
       </div>
     </section>
   );

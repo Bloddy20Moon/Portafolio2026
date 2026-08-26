@@ -9,14 +9,11 @@ export default function Footer() {
           © 2026 Adrian Alvarado
         </div>
         <div className="flex gap-4 mt-4 md:mt-0 font-body-md text-body-md">
-          <a className="text-gray-400 hover:text-primary transition-colors interactive" href="#">
+          <a className="text-gray-400 hover:text-primary transition-colors interactive" href="https://www.linkedin.com/in/adrian7500alvarado/">
             LinkedIn
           </a>
-          <a className="text-gray-400 hover:text-primary transition-colors interactive" href="#">
+          <a className="text-gray-400 hover:text-primary transition-colors interactive" href="https://github.com/Bloddy20Moon">
             GitHub
-          </a>
-          <a className="text-gray-400 hover:text-primary transition-colors interactive" href="#">
-            Twitter
           </a>
         </div>
       </div>
