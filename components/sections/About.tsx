@@ -19,9 +19,9 @@ export default function About() {
             </p>
           </div>
           <div className="flex flex-wrap gap-2 pt-4">
-            <span className="tech-tag font-label-mono text-label-mono px-3 py-1 rounded-sm text-xs">1 YRS EXP</span>
+            <span className="tech-tag font-label-mono text-label-mono px-3 py-1 rounded-sm text-xs">1 AÑO DE EXPERIENCIA</span>
             <span className="tech-tag font-label-mono text-label-mono px-3 py-1 rounded-sm text-xs">COLABORADOR DE CÓDIGO ABIERTO</span>
-            <span className="tech-tag font-label-mono text-label-mono px-3 py-1 rounded-sm text-xs">REMOTE-FRIENDLY</span>
+            <span className="tech-tag font-label-mono text-label-mono px-3 py-1 rounded-sm text-xs">DISPONIBILIDAD REMOTA</span>
           </div>
         </div>
         <div className="flex-1 w-full max-w-md mx-auto md:mr-0 mt-12 md:mt-0">

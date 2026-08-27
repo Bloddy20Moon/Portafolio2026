@@ -3,8 +3,6 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 
-// Estructura de TypeScript que define los campos requeridos para cada proyecto.
-// Puedes agregar nuevos campos aquí si los necesitas en el futuro.
 interface Project {
   id: number;
   title: string;
@@ -17,11 +15,6 @@ interface Project {
   projectUrl: string;
 }
 
-// ==========================================
-// CONFIGURACIÓN DE TUS PROYECTOS:
-// Para agregar un programa o cambiar su información,
-// simplemente modifica, elimina o añade objetos a este array.
-// ==========================================
 const PROJECTS_DATA: Project[] = [
   {
     id: 1,
@@ -32,7 +25,7 @@ const PROJECTS_DATA: Project[] = [
     images: ["/images/RestoApp1.webp", "/images/RestoApp2.webp", "/images/RestoApp3.webp"],
     imageAlt: "RestoApp",
     githubUrl: "https://github.com/Bloddy20Moon/FacturacionRestaurante",
-    projectUrl: "https://github.com/Bloddy20Moon/FacturacionRestaurante"
+    projectUrl: "https://facturacionrestaurante.onrender.com/"
   },
   {
     id: 2,
@@ -48,21 +41,15 @@ const PROJECTS_DATA: Project[] = [
     imageAlt: "Calzado",
     githubUrl: "https://github.com/Bloddy20Moon/SistemaZapateriaFront",
 
-    projectUrl: "https://github.com/Bloddy20Moon/SistemaZapateriaFront"
+    projectUrl: "https://sistema-zapateria-nonfeckfq-adrian-alva.vercel.app/login"
   }
 ];
 
 export default function Projects() {
-  // Estado de React para controlar qué proyecto está seleccionado en el modal
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-  // Estado de React para controlar la imagen activa del carrusel dentro del modal
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-
-  // Referencia para rastrear el inicio del gesto táctil en móviles
   const touchStartX = useRef<number>(0);
 
-  // Abrir modal reseteando el carrusel interno al primer slide
   const handleOpenModal = useCallback((project: Project) => {
     setSelectedProject(project);
     setActiveImageIndex(0);
@@ -72,7 +59,6 @@ export default function Projects() {
     setSelectedProject(null);
   }, []);
 
-  // Funciones de navegación para las imágenes del carrusel del modal
   const nextImage = useCallback(() => {
     if (selectedProject) {
       setActiveImageIndex((prev) => (prev + 1) % selectedProject.images.length);
@@ -85,7 +71,6 @@ export default function Projects() {
     }
   }, [selectedProject]);
 
-  // Gestos táctiles en móviles para el carrusel del modal
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.targetTouches[0].clientX;
   };
@@ -101,7 +86,6 @@ export default function Projects() {
     }
   };
 
-  // Efecto para controlar atajos de teclado (Escape y Flechas para el carrusel del modal)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -123,7 +107,6 @@ export default function Projects() {
 
   return (
     <section className="mt-section-gap pt-section-gap" id="projects">
-      {/* Cabecera de la Sección */}
       <div className="flex items-end justify-between mb-12 border-b border-white/20 pb-4">
         <div>
           <span className="section-index font-label-mono text-label-mono">{"// 01"}</span>
@@ -136,17 +119,14 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Lista de Proyectos (Formato Vertical Original) */}
       <div className="space-y-8">
         {PROJECTS_DATA.map((project, index) => {
-          // Alternamos la dirección del diseño en desktop (imagen a la izquierda o derecha)
           const isEven = index % 2 === 0;
           return (
             <div
               key={project.id}
               className={`project-card rounded-2xl p-6 md:p-10 flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center interactive`}
             >
-              {/* Información del Proyecto */}
               <div className="flex-1 space-y-6">
                 <div className="font-label-mono text-label-mono text-primary text-xs tracking-widest uppercase">
                   {project.subtitle}
@@ -173,15 +153,12 @@ export default function Projects() {
                 </button>
               </div>
 
-              {/* Imagen Interactiva (Haz clic en ella para abrir el modal) */}
               <div
                 onClick={() => handleOpenModal(project)}
                 className="flex-1 w-full overflow-hidden rounded-xl border border-white/20 relative cursor-pointer group/img aspect-video interactive"
               >
-                {/* Capa de mezcla roja clásica del tema */}
                 <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10 pointer-events-none group-hover/img:bg-transparent transition-colors duration-300"></div>
 
-                {/* Capa oscura y botón 'Ver detalles' en hover */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 z-20 flex items-center justify-center">
                   <span className="bg-primary text-white font-button text-button px-4 py-2 rounded-lg flex items-center gap-2 transform translate-y-4 group-hover/img:translate-y-0 transition-transform duration-300">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -205,10 +182,7 @@ export default function Projects() {
         })}
       </div>
 
-      {/* ==========================================
-          MODAL DE DETALLES ANIMADO (LIGHTBOX)
-          Se activa al hacer clic en las imágenes o en 'Ver detalles'
-          ========================================== */}
+      {/* Modal de detalles (Lightbox) */}
       {selectedProject && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 animate-fadeIn"
@@ -217,9 +191,8 @@ export default function Projects() {
           {/* Contenedor del Modal */}
           <div
             className="relative w-full max-w-4xl bg-[#111111] border border-white/20 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh] md:max-h-[80vh] animate-scaleIn"
-            onClick={(e) => e.stopPropagation()} // Detiene la propagación para que no se cierre al hacer clic dentro
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* Botón de Cerrar - SVG X nativo en lugar de fuente tipográfica */}
             <button
               className="absolute top-4 right-4 z-30 text-white bg-black/60 hover:bg-black/80 border border-white/20 p-2 rounded-full transition-colors flex items-center justify-center interactive cursor-pointer"
               onClick={handleClose}
@@ -230,7 +203,6 @@ export default function Projects() {
               </svg>
             </button>
 
-            {/* Panel Izquierdo: Imagen del Proyecto / Carrusel en el Modal */}
             <div
               className="flex-1 relative min-h-[200px] sm:min-h-[300px] md:min-h-0 bg-black flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-white/10 aspect-video md:aspect-auto select-none"
               onTouchStart={handleTouchStart}
@@ -247,10 +219,8 @@ export default function Projects() {
                 />
               </div>
 
-              {/* Controles de Navegación del Carrusel en el Modal */}
               {selectedProject.images.length > 1 && (
                 <>
-                  {/* Flecha Izquierda */}
                   <button
                     onClick={prevImage}
                     className="absolute left-4 top-1/2 -translate-y-1/2 z-25 p-2 rounded-full bg-black/60 hover:bg-black/85 border border-white/25 hover:border-primary/50 text-white hover:text-primary transition-all cursor-pointer flex items-center justify-center interactive"
@@ -261,7 +231,6 @@ export default function Projects() {
                     </svg>
                   </button>
 
-                  {/* Flecha Derecha */}
                   <button
                     onClick={nextImage}
                     className="absolute right-4 top-1/2 -translate-y-1/2 z-25 p-2 rounded-full bg-black/60 hover:bg-black/85 border border-white/25 hover:border-primary/50 text-white hover:text-primary transition-all cursor-pointer flex items-center justify-center interactive"
@@ -272,7 +241,6 @@ export default function Projects() {
                     </svg>
                   </button>
 
-                  {/* Puntos Indicadores */}
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-25 flex items-center gap-2 bg-black/50 px-3 py-1.5 rounded-full border border-white/10">
                     {selectedProject.images.map((_, idx) => (
                       <button
@@ -288,7 +256,6 @@ export default function Projects() {
               )}
             </div>
 
-            {/* Panel Derecho: Información y Botón GitHub */}
             <div className="flex-1 p-6 md:p-8 flex flex-col justify-between overflow-y-auto space-y-6">
               <div className="space-y-4">
                 <div className="font-label-mono text-label-mono text-primary text-xs tracking-widest uppercase">
@@ -297,11 +264,9 @@ export default function Projects() {
                 <h3 className="font-headline-sm text-headline-sm text-white font-bold">
                   {selectedProject.title}
                 </h3>
-                {/* Resumen del proyecto detallado */}
                 <p className="font-body-md text-body-md text-gray-300 leading-relaxed">
                   {selectedProject.description}
                 </p>
-                {/* Tecnologías */}
                 <div className="flex flex-wrap gap-2 pt-2">
                   {selectedProject.tags.map((tag) => (
                     <span key={tag} className="tech-tag font-label-mono text-label-mono px-2 py-1 rounded-sm text-[10px]">
@@ -311,7 +276,6 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Botones de Acción */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-white/10">
                 <a
                   href={selectedProject.githubUrl}

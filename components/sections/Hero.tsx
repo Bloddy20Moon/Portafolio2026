@@ -10,14 +10,14 @@ export default function Hero() {
           Idea<br />Codigo<br />Realidad.<span className="text-primary animate-pulse">|</span>
         </h1>
         <p className="font-body-lg text-body-lg text-gray-300 max-w-md">
-          Programador Full-Stack, me especializo en Angular, .NET, React, Node.js, SQL and Power BI.
+          Programador Full-Stack, me especializo en Angular, .NET, React, Node.js, SQL y Power BI.
         </p>
         <div className="flex flex-wrap gap-4 pt-stack-md">
           <a className="btn-primary font-button text-button px-6 py-3 rounded-lg flex items-center gap-2 interactive" href="https://github.com/Bloddy20Moon">
-            Ver Proyectos <span className="material-symbols-outlined">por Github</span>
+            Ver Proyectos <span className="material-symbols-outlined text-sm"></span>
           </a>
-          <a className="btn-secondary font-button text-button px-6 py-3 rounded-lg flex items-center gap-2 interactive" href="#">
-            <span className="material-symbols-outlined">Descargar CV</span>
+          <a className="btn-secondary font-button text-button px-6 py-3 rounded-lg flex items-center gap-2 interactive" href="https://drive.google.com/file/d/1oRNIut3TbNYgNP2Btjw-7IxE07n2I4dh/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            Descargar CV <span className="material-symbols-outlined text-sm"></span>
           </a>
         </div>
         <div className="flex flex-wrap gap-2 pt-stack-lg">
@@ -28,7 +28,7 @@ export default function Hero() {
           <span className="tech-tag font-label-mono text-label-mono px-3 py-1 rounded-sm text-xs">POWER BI</span>
           <span className="tech-tag font-label-mono text-label-mono px-3 py-1 rounded-sm text-xs">AWS</span>
         </div>
-      </div>
+      </div >
       <div className="flex-1 w-full max-w-lg mt-12 md:mt-0">
         <div className="glass-panel rounded-xl p-6 shadow-2xl relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none"></div>
@@ -47,6 +47,6 @@ export default function Hero() {
           </pre>
         </div>
       </div>
-    </section>
+    </section >
   );
 }

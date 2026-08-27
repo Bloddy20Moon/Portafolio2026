@@ -22,13 +22,7 @@ export default function Navbar() {
             Contacto
           </a>
         </div>
-        {/* Hire me button 
-        <a
-          className="font-button text-button btn-primary px-4 py-2 rounded-lg interactive flex items-center gap-2 scale-95 active:scale-90 transition-transform"
-          href="#contact"
-        >
-          Hire me <span className="material-symbols-outlined text-sm">arrow_forward</span>
-        </a>*/}
+
       </div>
     </nav>
   );

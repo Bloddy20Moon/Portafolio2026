@@ -1,25 +1,34 @@
-# Graph Report - portafolio  (2026-08-20)
+# Graph Report - portafolio  (2026-08-26)
 
 ## Corpus Check
-- Corpus is ~3,069 words - fits in a single context window. You may not need a graph.
+- 21 files · ~19,227 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 96 nodes · 99 edges · 11 communities (8 shown, 3 thin omitted)
+- 104 nodes · 99 edges · 16 communities (9 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
+## Graph Freshness
+- Built from commit: `b3815c2d`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
+
 ## Community Hubs (Navigation)
-- React Components and Pages
-- Development Dependencies
-- TypeScript Compiler Options
-- TypeScript Project Config
-- Package Configuration and Scripts
-- Runtime Dependencies
-- Application Layout and Fonts
-- TypeScript Library Environment
-- ESLint Configuration
-- Next.js Configuration
-- PostCSS Configuration
+- page.tsx
+- devDependencies
+- compilerOptions
+- include
+- package.json
+- AGENTS.md
+- layout.tsx
+- lib
+- eslint.config.mjs
+- next.config.ts
+- postcss.config.mjs
+- rules/graphify.md
+- workflows/graphify.md
+- next-env.d.ts
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 16 edges
@@ -31,7 +40,7 @@
 7. `About()` - 2 edges
 8. `ContactCTA()` - 2 edges
 9. `Hero()` - 2 edges
-10. `OpenSource()` - 2 edges
+10. `Projects()` - 2 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -39,59 +48,55 @@
 ## Import Cycles
 - None detected.
 
-## Communities (11 total, 3 thin omitted)
+## Communities (16 total, 7 thin omitted)
 
-### Community 0 - "React Components and Pages"
-Cohesion: 0.13
-Nodes (10): Footer(), Navbar(), About(), ContactCTA(), Hero(), OpenSource(), Projects(), Stack() (+2 more)
+### Community 0 - "page.tsx"
+Cohesion: 0.14
+Nodes (10): Footer(), Navbar(), About(), ContactCTA(), Hero(), Project, Projects(), PROJECTS_DATA (+2 more)
 
-### Community 1 - "Development Dependencies"
+### Community 1 - "devDependencies"
 Cohesion: 0.12
 Nodes (17): eslint, eslint-config-next, devDependencies, eslint, eslint-config-next, tailwindcss, @tailwindcss/postcss, @types/node (+9 more)
 
-### Community 2 - "TypeScript Compiler Options"
+### Community 2 - "compilerOptions"
 Cohesion: 0.13
 Nodes (15): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, module, moduleResolution (+7 more)
 
-### Community 3 - "TypeScript Project Config"
+### Community 3 - "include"
 Cohesion: 0.20
 Nodes (9): **/*.mts, .next/dev/types/**/*.ts, next-env.d.ts, .next/types/**/*.ts, node_modules, **/*.ts, **/*.tsx, exclude (+1 more)
 
-### Community 4 - "Package Configuration and Scripts"
-Cohesion: 0.22
-Nodes (8): name, private, scripts, build, dev, lint, start, version
+### Community 4 - "package.json"
+Cohesion: 0.12
+Nodes (15): next, dependencies, next, react, react-dom, name, private, scripts (+7 more)
 
-### Community 5 - "Runtime Dependencies"
-Cohesion: 0.29
-Nodes (7): next, dependencies, next, react, react-dom, react, react-dom
-
-### Community 6 - "Application Layout and Fonts"
+### Community 6 - "layout.tsx"
 Cohesion: 0.33
 Nodes (4): hankenGrotesk, inter, jetbrainsMono, metadata
 
-### Community 7 - "TypeScript Library Environment"
+### Community 7 - "lib"
 Cohesion: 0.50
 Nodes (4): dom, dom.iterable, esnext, lib
 
 ## Knowledge Gaps
-- **49 isolated node(s):** `hankenGrotesk`, `inter`, `jetbrainsMono`, `metadata`, `eslintConfig` (+44 more)
+- **54 isolated node(s):** `hankenGrotesk`, `inter`, `jetbrainsMono`, `metadata`, `Project` (+49 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `devDependencies` connect `Development Dependencies` to `Package Configuration and Scripts`?**
-  _High betweenness centrality (0.082) - this node is a cross-community bridge._
-- **Why does `compilerOptions` connect `TypeScript Compiler Options` to `TypeScript Project Config`, `TypeScript Library Environment`?**
-  _High betweenness centrality (0.073) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `Runtime Dependencies` to `Package Configuration and Scripts`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
+- **Why does `devDependencies` connect `devDependencies` to `package.json`?**
+  _High betweenness centrality (0.070) - this node is a cross-community bridge._
+- **Why does `compilerOptions` connect `compilerOptions` to `include`, `lib`?**
+  _High betweenness centrality (0.062) - this node is a cross-community bridge._
 - **What connects `hankenGrotesk`, `inter`, `jetbrainsMono` to the rest of the system?**
-  _49 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `React Components and Pages` be split into smaller, more focused modules?**
-  _Cohesion score 0.1341991341991342 - nodes in this community are weakly interconnected._
-- **Should `Development Dependencies` be split into smaller, more focused modules?**
+  _54 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `page.tsx` be split into smaller, more focused modules?**
+  _Cohesion score 0.14210526315789473 - nodes in this community are weakly interconnected._
+- **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
-- **Should `TypeScript Compiler Options` be split into smaller, more focused modules?**
+- **Should `compilerOptions` be split into smaller, more focused modules?**
   _Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected._
+- **Should `package.json` be split into smaller, more focused modules?**
+  _Cohesion score 0.125 - nodes in this community are weakly interconnected._
